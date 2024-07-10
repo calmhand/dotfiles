@@ -1,0 +1,13 @@
+# Common locations
+alias sdny="cd ~/SPELLBOOK/sevendaysnineyears/"
+alias dotfiles="cd ~/.dotfiles/"
+
+# Easier navigation: ..., ...., ....., and -
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias -- -="cd -"
+
+# Pretty print the path
+alias path='echo $PATH | tr -s ":" "\n"'
