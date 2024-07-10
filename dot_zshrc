@@ -52,4 +52,3 @@ zinit light-mode for \
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit load marlonrichert/zsh-autocomplete
 neofetch
-
