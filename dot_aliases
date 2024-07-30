@@ -1,6 +1,19 @@
+###### General ######
+
+if [ $UID -ne 0 ]; then # Update and upgrade packages (Ubuntu/Debian)
+    alias reboot='sudo reboot'
+    alias update='sudo apt-get upgrade'
+fi
+alias src='source ~/.zshrc'              # Reload zsh configuration
+alias path='echo $PATH | tr -s ":" "\n"' # Pretty print the path
+alias c='clear'                          #c: Clear terminal display
+alias dev='nvim .'
+
+
 # Common locations
-alias sdny="cd ~/SPELLBOOK/sevendaysnineyears/"
-alias dotfiles="cd ~/.dotfiles/"
+alias home="cd $HOME"
+alias sdny="cd $HOME/SPELLBOOK/sevendaysnineyears/"
+alias dotfiles="cd $HOME/.dotfiles/"
 
 # Easier navigation: ..., ...., ....., and -
 alias ..="cd .."
@@ -8,6 +21,34 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias -- -="cd -"
+# Opens current directory
+if [[ "$(uname)" == "Linux" ]]; then
+    alias here='xdg-open .'
+elif [[ "$(uname)" == "Darwin" ]]; then
+    alias here='open -a Finder ./'
+fi
 
-# Pretty print the path
-alias path='echo $PATH | tr -s ":" "\n"'
+# Grep
+alias grep='grep --color=auto'      # Colored grep output
+alias egrep='egrep --color=auto'    # Colored egrep output
+alias fgrep='fgrep --color=auto'    # Colored fgrep output
+
+
+
+###### Development ######
+
+# NPM
+alias ni='npm install'                            # Install npm packages
+alias ns='npm run dev'                            # Start npm project
+alias nt='npm test'                               # Run tests
+
+# Git
+alias gs='git status'               # Git status
+alias ga='git add'                  # Git add
+alias gc='git commit'               # Git commit
+alias gp='git push'                 # Git push
+alias gl='git pull'                 # Git pull
+alias gco='git checkout'            # Git checkout
+alias gb='git branch'               # Git branch
+alias gd='git diff'                 # Git diff
+alias glog='git log --oneline --graph --decorate --all'  # Compact git log with graph

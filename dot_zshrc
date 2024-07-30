@@ -5,21 +5,19 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-export EDITOR=nvim
-export LDFLAGS="-L/opt/homebrew/opt/tcl-tk/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/tcl-tk/include"
-
-PATH=/bin:/usr/bin:/usr/local/bin:${PATH}
-export PATH
+if [[ "$(uname)" == "Linux" ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
 source "$HOME/.aliases"
 
-alias c='clear' #c: Clear terminal display
-alias f='open -a Finder ./' #f: Opens current directory in MacOS Finder
+export EDITOR=nvim # Sets default editor.
+export PATH="/bin:/usr/bin:/usr/local/bin:${PATH}"
+export PATH="/opt/homebrew/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/tcl-tk/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/tcl-tk/include"
 export PATH="/opt/homebrew/opt/icu4c/bin:$PATH"
 export PATH="/opt/homebrew/opt/icu4c/sbin:$PATH"
-export PATH="/opt/homebrew/bin:$PATH"
 export PATH=${PATH}:/usr/local/mysql/bin/
 
 export NVM_DIR="$HOME/.nvm"
@@ -51,4 +49,5 @@ zinit light-mode for \
 
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit load marlonrichert/zsh-autocomplete
+
 neofetch
