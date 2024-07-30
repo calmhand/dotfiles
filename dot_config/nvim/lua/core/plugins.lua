@@ -12,32 +12,38 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  "folke/which-key.nvim",
-  { "folke/neoconf.nvim", cmd = "Neoconf" },
-  "folke/neodev.nvim",
+    "folke/which-key.nvim",
+    { "folke/neoconf.nvim", cmd = "Neoconf" },
+    "folke/neodev.nvim",
 
-  { 'kepano/flexoki-neovim', name = 'flexoki' }, -- Theme
-  {'daschw/leaf.nvim'},
+    { 'kepano/flexoki-neovim', name = 'flexoki' }, -- Theme
+    {'daschw/leaf.nvim'},
 
-  { 'nvim-telescope/telescope.nvim', tag = '0.1.6', -- Fuzzy Finder
-      dependencies = { 'nvim-lua/plenary.nvim' }
-  },
+    { 'nvim-telescope/telescope.nvim', tag = '0.1.6', -- Fuzzy Finder
+        dependencies = { 'nvim-lua/plenary.nvim' }
+    },
 
-  {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"}, -- Treesitter
+    {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"}, -- Treesitter
 
-  {"nvim-tree/nvim-tree.lua"}, -- File Explorer
-  {"nvim-tree/nvim-web-devicons"},
+    {"nvim-tree/nvim-tree.lua"}, -- File Explorer
+    {"nvim-tree/nvim-web-devicons"},
 
-  {"pocco81/auto-save.nvim"}, -- Auto Save
+    {"pocco81/auto-save.nvim"}, -- Auto Save
 
-  { 'nvim-lualine/lualine.nvim', -- LuaLine (Status Bar)
-  dependencies = { 'nvim-tree/nvim-web-devicons' }
-  },
+    { 'nvim-lualine/lualine.nvim', -- LuaLine (Status Bar)
+        dependencies = { 'nvim-tree/nvim-web-devicons' }
+    },
 
-  {'williamboman/mason.nvim'}, -- LSP + Helpers
-  {'williamboman/mason-lspconfig.nvim'},
-  {'neovim/nvim-lspconfig'},
-  {'hrsh7th/nvim-cmp'},
-  {'hrsh7th/cmp-nvim-lsp'},
+    {'williamboman/mason.nvim'}, -- LSP + Helpers
+    {'williamboman/mason-lspconfig.nvim'},
+    {'neovim/nvim-lspconfig'},
+    {'hrsh7th/nvim-cmp', 
+        dependencies = {
+            'saadparwaiz1/cmp_luasnip',
+            'L3MON4D3/LuaSnip',
+            'rafamadriz/friendly-snippets'
+        }
+    },
+    {'hrsh7th/cmp-nvim-lsp'},
 
 })
