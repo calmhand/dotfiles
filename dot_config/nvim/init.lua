@@ -6,3 +6,4 @@ require("core.plugin_config")
 -- Set colorscheme after options
 vim.opt.termguicolors = true
 vim.cmd('colorscheme leaf')
+vim.cmd('set clipboard+=unnamedplus')
