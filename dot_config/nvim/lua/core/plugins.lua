@@ -37,13 +37,18 @@ require("lazy").setup({
     {'williamboman/mason.nvim'}, -- LSP + Helpers
     {'williamboman/mason-lspconfig.nvim'},
     {'neovim/nvim-lspconfig'},
-    {'hrsh7th/nvim-cmp', 
-        dependencies = {
+    {'hrsh7th/nvim-cmp',
+        dependencies = { -- Snippets + LSP Functionality
             'saadparwaiz1/cmp_luasnip',
             'L3MON4D3/LuaSnip',
             'rafamadriz/friendly-snippets'
         }
     },
     {'hrsh7th/cmp-nvim-lsp'},
+    {'nvimtools/none-ls.nvim',
+        dependencies = {
+            {'nvimtools/none-ls-extras.nvim'}
+        }
+    }
 
 })
